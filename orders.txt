@@ -1,0 +1,15 @@
+Zamówienie:
+Imię i nazwisko: Pierre Aronnax
+E-mail: nautilus@nemo.com
+Telefon: None
+Ulica: None
+Dodatkowe: None
+Numer: None
+Kod pocztowy: None
+Miasto: None
+Kraj: None
+Produkty:
+- Clean Panda x1 = 99.0 zł
+- Hungry Panda x2 = 198.0 zł
+Suma: 297.0 zł
+---

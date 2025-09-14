@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - add one product</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Our Products</h1>
+    <div class="products-list">
+        {% for product in products %}
+        <div class="container">
+            <h2>{{ product.name }}</h2>
+            <img src="{{ product.image }}" alt="{{ product.name }}" style="max-width:300px;">
+            <p>{{ product.description }}</p>
+            <p><strong>Price: {{ product.price }} USD</strong></p>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit">add to basket</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

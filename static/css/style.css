@@ -1,0 +1,107 @@
+/* Główne tło strony i ustawienia czcionki */
+body {
+    background: #f7c570 url('/static/images/Gradient Wallpaper For Your Android Smartphone Or Tablet.jpg');
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+/* .products-list - kontener na wszystkie produkty na stronie głównej (flexbox, odstępy, szerokość) */
+
+.container {
+    background: #9c0404 url('/static/images/Orange Gradient Wallpaper.jpg');
+    width: 400px;
+    margin: 0;
+    padding: 32px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* .container - pojedynczy produkt (karta produktu: tło, szerokość, padding, zaokrąglenie, cień, flexbox) */
+
+h1 {
+    color: #f40505; /* zmień na dowolny, np. #222 lub inny */
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 2.2em;
+}
+/* h1 - główny nagłówek strony (kolor, margines, wyśrodkowanie, rozmiar) */
+
+/* img - styl obrazków produktów (zaokrąglenie rogów, margines dolny) */
+img {
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+img:hover {
+    transform: scale(1.20); /* Powiększenie obrazka */
+    box-shadow: 0 8px 32px rgba(44,44,120,0.18); /* Cień pod obrazkiem */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+/* img:hover - animacja obrazka po najechaniu myszką (powiększenie, cień, płynna animacja) */
+
+/* p - tekst opisu produktu (kolor, rozmiar czcionki) */
+p {
+    color: #444;
+    font-size: 1.1em;
+}
+
+/* form - odstęp nad formularzem (np. dodawania do koszyka) */
+form {
+    margin-top: 24px;
+}
+
+/* input, textarea - stylizacja pól formularzy (szerokość, padding, margines, ramka, zaokrąglenie, rozmiar czcionki) */
+input, textarea {
+    width: 90%;
+    padding: 8px;
+    margin: 6px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+/* button - stylizacja przycisków (kolor tła, kolor tekstu, padding, zaokrąglenie, rozmiar, kursor, animacja tła) */
+button {
+    background: #ab0d2f;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #e44545;
+    transform: scale(1.08); /* Powiększenie przycisku */
+    box-shadow: 0 8px 32px rgba(44,44,120,0.18); /* Cień pod przyciskiem */
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s; /* Płynna animacja */
+}
+/* button:hover - animacja przycisku po najechaniu myszką (zmiana tła, powiększenie, cień, płynna animacja) */
+
+/* (przykład alternatywnej animacji obrazka, zakomentowany) */
+/*
+img:hover {
+    transform: scale(1.05); // Powiększenie obrazka
+    box-shadow: 0 8px 32px rgba(44,44,120,0.18); // Cień pod obrazkiem
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+*/
+/* table, th, td - kolor tekstu w tabelach (np. panel admina) */
+table, th, td {
+    color: #eeebf8; /* lub inny, np. #000 dla czarnego */
+}

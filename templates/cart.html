@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Your Basket</h1>
+    {% if cart_items %}
+    <table style="margin: 0 auto; border-collapse: collapse;">
+        <tr>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Product</th>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Stuck</th>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Price</th>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">All Together</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td style="padding: 8px;">{{ item.name }}</td>
+            <td style="padding: 8px;">{{ item.quantity }}</td>
+            <td style="padding: 8px;">{{ item.price }} zł</td>
+            <td style="padding: 8px;">{{ item.subtotal }} USD</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3" style="text-align: right; padding: 8px;"><strong>Pay:</strong></td>
+            <td style="padding: 8px;"><strong>{{ total }} USD</strong></td>
+        </tr>
+    </table>
+    <br>
+    <form action="/order" method="post" style="max-width:400px; margin: 0 auto;">
+        <h2>Shipping details:</h2>
+        <label for="name">Name and Surname:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        <label for="street">Street:</label><br>
+        <input type="text" id="street" name="street" required><br><br>
+        <label for="street2">Additional (apt, suite, etc):</label><br>
+        <input type="text" id="street2" name="street2"><br><br>
+        <label for="number">House/Flat Number:</label><br>
+        <input type="text" id="number" name="number" required><br><br>
+        <label for="postcode">Postal Code:</label><br>
+        <input type="text" id="postcode" name="postcode" required><br><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+        <label for="country">Country:</label><br>
+        <input type="text" id="country" name="country" required><br><br>
+        <button type="submit">Order</button>
+    </form>
+    {% else %}
+    <p>Basket is Empty.</p>
+    {% endif %}
+    <br>
+    <a href="/">&larr; Back to the Shop</a>
+</body>
+</html>
