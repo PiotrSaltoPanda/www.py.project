@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+    <header>
+        <!-- Menu użytkownika: dynamiczne linki zależnie od sesji -->
+        {% if session.user_id %}
+            <span>Witaj, {{ session.user_email }}!</span>
+            <a href="/logout">Wyloguj się</a>
+        {% else %}
+            <a href="/login">Zaloguj się</a> |
+            <a href="/register">Zarejestruj się</a>
+        {% endif %}
+    </header>
     <h1>Our Products</h1>
     <div class="products-list">
         {% for product in products %}

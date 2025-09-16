@@ -1,0 +1,46 @@
+<!-- Panel administracyjny: zarządzanie produktami i zamówieniami (tylko dla admina) -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel administratora</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="/">Powrót do sklepu</a>
+        <span style="float:right;">Zalogowany jako: {{ session.user_email }}</span>
+    </header>
+    <h1>Panel administratora</h1>
+    <h2>Zarządzanie produktami</h2>
+    <a href="/admin/add_product">Dodaj nowy produkt</a>
+    <table>
+        <tr><th>ID</th><th>Nazwa</th><th>Cena</th><th>Akcje</th></tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <a href="/admin/edit_product/{{ product.id }}">Edytuj</a> |
+                <a href="/admin/delete_product/{{ product.id }}" onclick="return confirm('Na pewno usunąć?')">Usuń</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Zamówienia</h2>
+    <table>
+        <tr><th>ID</th><th>Imię i nazwisko</th><th>Email</th><th>Produkty</th><th>Suma</th><th>Data</th></tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[10] }}</td>
+            <td>{{ order[11] }}</td>
+            <td>{{ order[12] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

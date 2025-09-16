@@ -1,0 +1,23 @@
+<!-- Formularz rejestracji użytkownika -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h2>Rejestracja</h2>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+    <form method="post">
+        <label for="email">E-mail:</label><br>
+    <!-- E-mail: wymagany, sprawdzany przez przeglądarkę -->
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Hasło:</label><br>
+    <!-- Hasło: wymagane, min. 6 znaków -->
+    <input type="password" id="password" name="password" required minlength="6" pattern=".{6,}" title="Hasło musi mieć co najmniej 6 znaków"><br><br>
+        <button type="submit">Zarejestruj się</button>
+    </form>
+    <p>Masz już konto? <a href="/login">Zaloguj się</a></p>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Główne tło strony i ustawienia czcionki */
+/* Tło strony i ustawienia czcionki */
 body {
     background: #f7c570 url('/static/images/Gradient Wallpaper For Your Android Smartphone Or Tablet.jpg');
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -6,6 +6,8 @@ body {
     padding: 0;
 }
 
+/* Główne tło strony i ustawienia czcionki */
+/* h1 - główny nagłówek strony, kolor biały dla lepszej widoczności na ciemnym tle */
 .products-list {
     display: flex;
     flex-wrap: wrap;
@@ -30,10 +32,7 @@ body {
 }
 /* .container - pojedynczy produkt (karta produktu: tło, szerokość, padding, zaokrąglenie, cień, flexbox) */
 
-h1 {
-    color: #f40505; /* zmień na dowolny, np. #222 lub inny */
-    margin-bottom: 16px;
-    text-align: center;
+/* p - tekst opisu produktu, kolor biały dla kontrastu z tłem */
     letter-spacing: 1px;
     font-size: 2.2em;
 }
@@ -54,7 +53,7 @@ img:hover {
 
 /* p - tekst opisu produktu (kolor, rozmiar czcionki) */
 p {
-    color: #444;
+    color: #fff;
     font-size: 1.1em;
 }
 
@@ -104,4 +103,21 @@ img:hover {
 /* table, th, td - kolor tekstu w tabelach (np. panel admina) */
 table, th, td {
     color: #eeebf8; /* lub inny, np. #000 dla czarnego */
+}
+
+/* Nagłówki h2, h3, h4, h5, h6 - białe */
+/* h2, h3, h4, h5, h6 - wszystkie nagłówki, kolor biały dla czytelności na ciemnym tle */
+h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+/* a - linki, kolor biały, podkreślenie po najechaniu dla lepszej widoczności */
+
+/* Linki - białe, z podkreśleniem po najechaniu */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }

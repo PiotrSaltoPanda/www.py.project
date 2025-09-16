@@ -1,0 +1,24 @@
+<!-- Formularz dodawania produktu (panel admina) -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj produkt</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Dodaj nowy produkt</h1>
+    <form method="post">
+        <label>Nazwa:</label><br>
+        <input type="text" name="name" required><br>
+        <label>Cena:</label><br>
+        <input type="number" name="price" step="0.01" required><br>
+        <label>Opis:</label><br>
+        <textarea name="description" required></textarea><br>
+        <label>Ścieżka do obrazka:</label><br>
+        <input type="text" name="image" required><br>
+        <button type="submit">Dodaj produkt</button>
+    </form>
+    <a href="/admin">Powrót do panelu admina</a>
+</body>
+</html>

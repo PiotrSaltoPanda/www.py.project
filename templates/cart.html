@@ -12,16 +12,29 @@
     <table style="margin: 0 auto; border-collapse: collapse;">
         <tr>
             <th style="padding: 8px; border-bottom: 1px solid #ccc;">Product</th>
-            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Stuck</th>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Quantity</th>
             <th style="padding: 8px; border-bottom: 1px solid #ccc;">Price</th>
             <th style="padding: 8px; border-bottom: 1px solid #ccc;">All Together</th>
+            <th style="padding: 8px; border-bottom: 1px solid #ccc;">Actions</th>
         </tr>
         {% for item in cart_items %}
         <tr>
             <td style="padding: 8px;">{{ item.name }}</td>
-            <td style="padding: 8px;">{{ item.quantity }}</td>
+            <td style="padding: 8px;">
+                <form action="/update_quantity" method="post" style="display:inline;">
+                    <input type="hidden" name="product_id" value="{{ item.id }}">
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width:50px;">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
             <td style="padding: 8px;">{{ item.price }} zł</td>
             <td style="padding: 8px;">{{ item.subtotal }} USD</td>
+            <td style="padding: 8px;">
+                <form action="/remove_from_cart" method="post" style="display:inline;">
+                    <input type="hidden" name="product_id" value="{{ item.id }}">
+                    <button type="submit">Remove</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
         <tr>

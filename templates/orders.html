@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zamówień (panel admina)</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h2>Lista zamówień (panel admina)</h2>
+    {# Sprawdzamy, czy są jakiekolwiek zamówienia przekazane z backendu #}
+    {% if orders %}
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th> <!-- Unikalny numer zamówienia -->
+            <th>Data</th> <!-- Data utworzenia zamówienia -->
+            <th>Imię i nazwisko</th> <!-- Imię i nazwisko klienta -->
+            <th>Email</th> <!-- Adres e-mail klienta -->
+            <th>Telefon</th> <!-- Telefon klienta -->
+            <th>Adres</th> <!-- Adres dostawy (ulica, numer, miasto, kraj) -->
+            <th>Produkty</th> <!-- Lista zamówionych produktów -->
+            <th>Suma</th> <!-- Suma zamówienia -->
+        </tr>
+        {# Iterujemy po wszystkich zamówieniach #}
+        {% for o in orders %}
+        <tr>
+            <td>{{ o[0] }}</td> <!-- ID zamówienia -->
+            <td>{{ o[12] }}</td> <!-- Data utworzenia (created_at) -->
+            <td>{{ o[1] }}</td> <!-- Imię i nazwisko -->
+            <td>{{ o[2] }}</td> <!-- Email -->
+            <td>{{ o[3] }}</td> <!-- Telefon -->
+            <!-- Adres: łączymy kilka pól w jeden czytelny tekst -->
+            <td>{{ o[4] }} {{ o[5] }} {{ o[6] }}, {{ o[7] }} {{ o[8] }}, {{ o[9] }}</td>
+            <!-- Produkty: wyświetlamy całą listę produktów (jako tekst) -->
+            <td><pre style="white-space:pre-line">{{ o[10] }}</pre></td>
+            <td>{{ o[11] }} zł</td> <!-- Suma zamówienia -->
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Brak zamówień.</p>
+    {% endif %}
+    <!-- Link powrotny do sklepu -->
+    <p><a href="/">Back to shop</a></p>
+</body>
+</html>
